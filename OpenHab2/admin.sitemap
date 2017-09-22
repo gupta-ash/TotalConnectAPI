@@ -1,0 +1,5 @@
+  Frame label="Security System" {
+      Switch item=TC2Status label="TotalConnect" mappings=[ARMSTAY="ARMSTAY", ARMAWAY="ARMAWAY", DISARM="DISARM"]
+      Group item=grpSecurity label="Security Zones [(%d)]" icon="contact" labelcolor=[CLOSED="green",OPEN="red"] valuecolor=[CLOSED="green",OPEN="red"]
+      // 
+   }

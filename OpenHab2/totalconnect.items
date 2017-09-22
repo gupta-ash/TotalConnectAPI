@@ -1,0 +1,23 @@
+// Item definition for TC2 devices
+Group:Contact:OR(OPEN,CLOSED) grpSecurity  "All Contacts [(%d)]"
+
+String TC2Status "Security System [%s]" <security> (grpSecurity) {http=">[ARMAWAY:GET:http://MyProxyLogin:MyProxyPasswd@localhost/TC2Proxy.php?action=ARMAWAY] >[ARMSTAY:GET:http://MyProxyLogin:MyProxyPasswd@localhost/TC2Proxy.php?action=ARMSTAY] >[DISARM:GET:http://MyProxyLogin:MyProxyPasswd@localhost/TC2Proxy.php?action=DISARM] <[TC2Cache:30000:REGEX(.*SysStatus\\S([A-Z_]+).*)]"}
+
+Contact Zone2_frontdoor "Side Door [%s]" <frontdoor> (grpSecurity, grpFF_EntryWay) {http="<[TC2Cache:30000:REGEX(.*Zone2\\S([A-Z_]+).*)]"}
+Contact Zone3_YardWindow "Yard Window [%s]" <contact> (grpSecurity, grpFF_Yard) {http="<[TC2Cache:30000:REGEX(.*Zone3\\S([A-Z_]+).*)]"}
+Contact Zone4_LivingDoor "Living Door [%s]" <frontdoor> (grpSecurity, grpFF_Living) {http="<[TC2Cache:30000:REGEX(.*Zone4\\S([A-Z_]+).*)]"}
+Contact Zone5_Garage1stWindow "Garage 1st Window [%s]" <contact> (grpSecurity, grpFF_Garage) {http="<[TC2Cache:30000:REGEX(.*Zone5\\S([A-Z_]+).*)]"}
+Contact Zone6_Garage2ndWindow "Garage 2nd Window [%s]" <contact> (grpSecurity, grpFF_Garage) {http="<[TC2Cache:30000:REGEX(.*Zone6\\S([A-Z_]+).*)]"}
+Contact Zone7_Bed5BathWindow "Bed5 Bath Window [%s]" <contact> (grpSecurity, grpFF_Bed5Bath) {http="<[TC2Cache:30000:REGEX(.*Zone7\\S([A-Z_]+).*)]"}
+Contact Zone8_Bed5BedWindow "Bed5 Bed Window [%s]" <contact> (grpSecurity) {http="<[TC2Cache:30000:REGEX(.*Zone8\\S([A-Z_]+).*)]"}
+Contact Zone9_UpstairsHallWindow "Upstairs Hall Window [%s]" <contact> (grpSecurity, grpSF_Hall) {http="<[TC2Cache:30000:REGEX(.*Zone9\\S([A-Z_]+).*)]"}
+Contact Zone10_KidsBedWindow "Kids Bed Window [%s]" <contact> (grpSecurity, grpSF_KidsBed) {http="<[TC2Cache:30000:REGEX(.*Zone10\\S([A-Z_]+).*)]"}
+Contact Zone11_GuestBedWindow1 "Guest Bed Window 1 [%s]" <contact> (grpSecurity, grpSF_GuestBed) {http="<[TC2Cache:30000:REGEX(.*Zone11\\S([A-Z_]+).*)]"}
+Contact Zone12_GuestBedWindow2 "Guest Bed Window 2 [%s]" <contact> (grpSecurity, grpSF_GuestBed) {http="<[TC2Cache:30000:REGEX(.*Zone12\\S([A-Z_]+).*)]"}
+Contact Zone13_GuestBathWindow "Guest Bath Window [%s]" <contact> (grpSecurity, grpSF_GuestBath) {http="<[TC2Cache:30000:REGEX(.*Zone13\\S([A-Z_]+).*)]"}
+Contact Zone14_LivingMotionSensor "Living Motion Sensor [%s]" <motion> (grpSecurity, grpFF_Living) {http="<[TC2Cache:30000:REGEX(.*Zone14\\S([A-Z_]+).*)]"}
+Contact Zone15_Bed5BedMotionSensor "Bed5 Bed Motion Sensor [%s]" <motion> (grpSecurity) {http="<[TC2Cache:30000:REGEX(.*Zone15\\S([A-Z_]+).*)]"}
+Contact Zone16_Garagefrontdoor "Garage Side Door [%s]" <frontdoor> (grpSecurity, grpFF_Garage) {http="<[TC2Cache:30000:REGEX(.*Zone16\\S([A-Z_]+).*)]"}
+Contact Zone46_GarageGate "Garage Gate [%s]" <garagedoor> (grpSecurity, grpFF_Garage) {http="<[TC2Cache:30000:REGEX(.*Zone46\\S([A-Z_]+).*)]"}
+
+// ======  END TC2  ===========================
